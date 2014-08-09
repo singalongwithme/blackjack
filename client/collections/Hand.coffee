@@ -2,28 +2,34 @@ class window.Hand extends Backbone.Collection
 
   model: Card
 
-  bestScore: 0
+  bestScore: ->
+  # get scores array, check if scores' length = 1
+    # set bestscore to array[0]
+    # else, loop through array and check for best
+    # number less than 21
+
+    temp = @scores()
+    if temp.length is 1
+      return temp[0]
+    else
+      highest = temp[0]
+      i = 0
+      console.log(highest + " " + temp)
+      while i < temp.length
+        highest = temp[i]  if temp[i] > highest and temp[i] <= 21
+        i++
+      console.log(highest + " " + temp)
+      return highest
 
   initialize: (array, @deck, @isDealer) ->
 
   hit: ->
     @add(@deck.pop()).last()
-    @setScore()
-    ###
-    console.log(@scores())
-    @bestScore = @scores()[0]
-    if @scores()[0] > 21
-      @stand()
-      @trigger('compare')###
 
   stand: ->
-    #@bestScore = @scores()[0]
-
-  dealerHit: ->
-    @stand()
-    if @bestScore < 17
+    if @bestScore() < 17
       @hit()
-      @dealerHit()
+      @stand()
 
     @trigger('compare')
 

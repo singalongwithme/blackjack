@@ -11,6 +11,13 @@ class window.Card extends Backbone.Model
         when 11 then 'Jack'
         when 12 then 'Queen'
         else params.rank
+      image: switch params.rank
+        when 0 then "img/cards/" + "king-" + ['spades', 'diamonds', 'clubs', 'hearts'][params.suit] + ".png"
+        when 1 then "img/cards/" + "ace-" + ['spades', 'diamonds', 'clubs', 'hearts'][params.suit] + ".png"
+        when 11 then "img/cards/" + "jack-" + ['spades', 'diamonds', 'clubs', 'hearts'][params.suit] + ".png"
+        when 12 then "img/cards/" + "queen-" + ['spades', 'diamonds', 'clubs', 'hearts'][params.suit] + ".png"
+        else "img/cards/" + params.rank + "-" + ['spades', 'diamonds', 'clubs', 'hearts'][params.suit] + ".png"
+
 
   flip: ->
     @set 'revealed', !@get 'revealed'

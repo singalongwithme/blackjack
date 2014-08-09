@@ -1,9 +1,9 @@
 .card {
   float: left;
   border: solid 1px black;
-  width: 100px;
+  width: 120px;
   border-radius: 5px;
-  height: 140px;
+  height: 175px;
   margin-right: 20px;
 }
 
@@ -11,6 +11,36 @@
   background-color: black;
 }
 
+.scoreResult {
+  margin-left: 195px;
+}
+
+.buttons {
+  margin-left: 195px;
+}
+
+.covered img {
+  display: none;
+}
+
 .hand {
   overflow: auto;
+}
+
+.next-button {
+  display: none;
+}
+
+body {
+  background-image: url('http://www.customtablefelt.com/images/suited-poker-felt/suited-poker-table-felt-400x300.jpg');
+}
+
+.container {
+  background: white;
+  width: 500px;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: #000 3px 3px 5px;
 }
