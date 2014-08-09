@@ -6,9 +6,7 @@ class window.App extends Backbone.Model
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
 
-  events = {'compare': -> do @compare}
-
-  compare: ->
-    console.log("here");
-    @get('playerHand').bestScore > @get('dealerHand').bestScore
-
+  restart: ->
+    temp = @get('deck')
+    @set 'playerHand', temp.dealPlayer()
+    @set 'dealerHand', temp.dealDealer()

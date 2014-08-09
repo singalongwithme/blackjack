@@ -2,15 +2,22 @@ class window.Hand extends Backbone.Collection
 
   model: Card
 
+  bestScore: 0
+
   initialize: (array, @deck, @isDealer) ->
 
   hit: ->
     @add(@deck.pop()).last()
+    @setScore()
+    ###
+    console.log(@scores())
+    @bestScore = @scores()[0]
+    if @scores()[0] > 21
+      @stand()
+      @trigger('compare')###
 
   stand: ->
-    @bestScore = @scores()[0]
-
-  bestScore: 0
+    #@bestScore = @scores()[0]
 
   dealerHit: ->
     @stand()

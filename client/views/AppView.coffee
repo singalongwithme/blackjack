@@ -7,11 +7,23 @@ class window.AppView extends Backbone.View
   '
 
   events:
-    "click .hit-button": -> @model.get('playerHand').hit()
+    "click .hit-button": ->
+      @model.get('playerHand').hit()
+      if @model.get('playerHand').bestScore > 21
+        @model.get('dealerHand').models[0].flip()
+        console.log('GG')
+
     "click .stand-button": ->
       @model.get('playerHand').stand()
       @model.get('dealerHand').models[0].flip()
       @model.get('dealerHand').dealerHit()
+      if @model.get('dealerHand').bestScore >= @model.get('playerHand').bestScore
+        console.log('you lost')
+      else
+        console.log('you win')
+      # turn these below back on to reset
+      #@model.restart()
+      #@render()
 
   initialize: ->
     @render()
