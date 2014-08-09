@@ -16,7 +16,8 @@
 }
 
 .buttons {
-  margin-left: 195px;
+  margin: 0px auto;
+  width: 100px;
 }
 
 .covered img {

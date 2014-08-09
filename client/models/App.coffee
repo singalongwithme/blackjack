@@ -10,3 +10,20 @@ class window.App extends Backbone.Model
     temp = @get('deck')
     @set 'playerHand', temp.dealPlayer()
     @set 'dealerHand', temp.dealDealer()
+
+  playerHit: ->
+    @get('playerHand').hit()
+    @playerCheck()
+
+  playerCheck: ->
+    temp = @get('playerHand').bestScore()
+    if temp > 21
+      @trigger 'busted'
+
+  compare: ->
+    playerScore = @get('playerHand').bestScore()
+    dealerScore = @get('dealerHand').bestScore()
+    if (playerScore > dealerScore && playerScore <= 21) || dealerScore > 21
+      @trigger 'win'
+    else
+      @trigger 'lose'

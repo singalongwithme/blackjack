@@ -14,11 +14,9 @@ class window.Hand extends Backbone.Collection
     else
       highest = temp[0]
       i = 0
-      console.log(highest + " " + temp)
       while i < temp.length
         highest = temp[i]  if temp[i] > highest and temp[i] <= 21
         i++
-      console.log(highest + " " + temp)
       return highest
 
   initialize: (array, @deck, @isDealer) ->
