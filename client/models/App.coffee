@@ -5,3 +5,10 @@ class window.App extends Backbone.Model
     @set 'deck', deck = new Deck()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
+
+  events = {'compare': -> do @compare}
+
+  compare: ->
+    console.log("here");
+    @get('playerHand').bestScore > @get('dealerHand').bestScore
+
