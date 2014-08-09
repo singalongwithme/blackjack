@@ -4,7 +4,7 @@
   width: 120px;
   border-radius: 5px;
   height: 175px;
-  margin-right: 20px;
+  margin: 5px;
 }
 
 .covered {
@@ -12,12 +12,15 @@
 }
 
 .scoreResult {
-  margin-left: 195px;
+  margin-left: 33%;
+  margin-right: 33%;
+  text-align: center;
 }
 
 .buttons {
-  margin: 0px auto;
-  width: 100px;
+  margin-left: 33%;
+  margin-right: 33%;
+  text-align: center;
 }
 
 .covered img {
@@ -38,7 +41,7 @@ body {
 
 .container {
   background: white;
-  width: 500px;
+  width: 540px;
   margin: 0px auto;
   padding: 20px;
   border: 1px solid black;

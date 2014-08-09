@@ -25,6 +25,7 @@ class window.Hand extends Backbone.Collection
     @add(@deck.pop()).last()
 
   stand: ->
+    console.log(@bestScore())
     if @bestScore() < 17
       @hit()
       @stand()

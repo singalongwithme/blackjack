@@ -18,10 +18,8 @@ class window.AppView extends Backbone.View
       @render()
 
     "click .stand-button": ->
+      @model.get('dealerHand').models[0].flip()
       @model.get('dealerHand').stand()
-
-      # console.log("Dealer best: " + @model.get('dealerHand').bestScore())
-      # console.log("Player best: " + @model.get('playerHand').bestScore())
 
       $(".covered img").css "display", 'inline'
       $(".hit-button").css "display", 'none'
@@ -61,3 +59,4 @@ class window.AppView extends Backbone.View
     @$el.html @template()
     @$('.player-hand-container').html new HandView(collection: @model.get 'playerHand').el
     @$('.dealer-hand-container').html new HandView(collection: @model.get 'dealerHand').el
+
